@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DevEducationApp.Models;
+using DevEducationApp.Requester;
+using DevEducationApp.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,9 +20,29 @@ namespace DevEducationApp.ViewPage
             InitializeComponent();
         }
 
-        private void Button_Clicked()
+        private void logInBtn_Clicked(object sender, EventArgs e)
         {
 
+            Start();
+
+        }
+
+        private async void Start()
+        {
+            var service = new UserService();
+            var model = new AccountModel
+            {
+                Id = 0,
+                Login = "TestYourLuck",
+                Password = "123"
+            };
+            var tokenManager = new TokenManager();
+            /*            var token = await service.Auth(model);*/
+            var token = await service.Auth(model);
+            tokenManager.SetToken(token);
+            var groupService = new GroupDTORequester(token);
+
+         //   var group = await groupService.GroupByTeacher();
         }
     }
 }

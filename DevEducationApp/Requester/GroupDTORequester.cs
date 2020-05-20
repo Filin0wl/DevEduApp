@@ -15,18 +15,20 @@ namespace DevEducationApp.Requester
     {
         private HttpClient _httpClient;
         private readonly string Token;
-        public GroupDTORequester()
+        public GroupDTORequester(string token)
         {
             _httpClient = new HttpClient()
             {
                 BaseAddress = new Uri("http://80.78.240.16:5100/")
             };
+
+            Token = token;
            //  DiContainer
         }
         public async Task<ICollection<GroupDto>> GroupByTeacher(int userId, CancellationToken cancellationToken = default(CancellationToken))
         {
             _httpClient.DefaultRequestHeaders.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("text/plain"));
-           // _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             var resp = await _httpClient.GetAsync($"/api/Group/groups-by-teacher/{userId}", cancellationToken).ConfigureAwait(false);
 
             if (resp.StatusCode == HttpStatusCode.OK)
