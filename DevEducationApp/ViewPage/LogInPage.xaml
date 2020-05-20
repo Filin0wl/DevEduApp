@@ -4,12 +4,14 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="DevEducationApp.ViewPage.Page1">
+             x:Class="DevEducationApp.ViewPage.LoginPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Login:"/>
+            <Entry x:Name="login" Text="TestYourLuck"/>
+            <Label Text="Password:"/>
+            <Entry x:Name="password" Text="123"/>
+            <Button Text="LogIn" HorizontalOptions ="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

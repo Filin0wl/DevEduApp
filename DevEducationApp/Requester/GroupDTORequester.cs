@@ -26,7 +26,7 @@ namespace DevEducationApp.Requester
         public async Task<ICollection<GroupDto>> GroupByTeacher(int userId, CancellationToken cancellationToken = default(CancellationToken))
         {
             _httpClient.DefaultRequestHeaders.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("text/plain"));
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+           // _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var resp = await _httpClient.GetAsync($"/api/Group/groups-by-teacher/{userId}", cancellationToken).ConfigureAwait(false);
 
             if (resp.StatusCode == HttpStatusCode.OK)

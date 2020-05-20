@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevEducationApp.ViewPage;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,8 @@ namespace DevEducationApp
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new LoginPage();
+            
         }
 
         protected override void OnStart()

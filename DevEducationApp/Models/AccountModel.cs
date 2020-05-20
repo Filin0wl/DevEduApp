@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DevEducationApp.Models
 {
-    class AuthModel
+    public class AccountModel
     {
         [JsonProperty("id")]
         public int Id { get; set; }

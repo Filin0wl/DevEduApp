@@ -10,11 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace DevEducationApp.ViewPage
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage
+    public partial class LoginPage : ContentPage
     {
-        public Page1()
+        public LoginPage()
         {
             InitializeComponent();
+        }
+
+        private void Button_Clicked()
+        {
+
         }
     }
 }

@@ -16,7 +16,7 @@ namespace DevEducationApp.Services
         {
             this.requester = requester;
             //var tmp DiContainer.Resolve
-            _userId = tmp.HasValue ? tmp.Value : 0;
+           // _userId = tmp.HasValue ? tmp.Value : 0;
         }
 
         public async Task<ICollection<GroupDto>> ReadGroups()
