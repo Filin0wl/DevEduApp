@@ -3,15 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DevEducationApp.Models
+namespace DevEducationApp.DTO
 {
-    class AuthResultModel
+     class ReceiveTokenDTO
     {
         [JsonProperty("userId")]
         public int Id { get; set; }
         [JsonProperty("access_token")]
         public string Token { get; set; }
-        
+
         [JsonProperty("username")]
         public string Login { get; set; }
     }

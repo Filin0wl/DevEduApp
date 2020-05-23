@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Refit;
 
 namespace DevEducationApp.Services
 {
@@ -16,7 +17,7 @@ namespace DevEducationApp.Services
         {
             this.requester = requester;
             //var tmp DiContainer.Resolve
-           // _userId = tmp.HasValue ? tmp.Value : 0;
+            //_userId = tmp.HasValue ? tmp.Value : 0;
         }
 
         public async Task<ICollection<GroupDto>> ReadGroups()

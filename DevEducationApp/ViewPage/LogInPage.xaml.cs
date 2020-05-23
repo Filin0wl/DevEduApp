@@ -1,4 +1,5 @@
-﻿using DevEducationApp.Models;
+﻿using DevEducationApp.DTO;
+using DevEducationApp.Models;
 using DevEducationApp.Requester;
 using DevEducationApp.Services;
 using System;
@@ -30,7 +31,7 @@ namespace DevEducationApp.ViewPage
         private async void Start()
         {
             var service = new UserService();
-            var model = new AccountModel
+            var model = new LoginDTO
             {
                 Id = 0,
                 Login = "TestYourLuck",
