@@ -8,7 +8,7 @@ namespace DevEducationApp.DTO
      class ReceiveTokenDTO
     {
         [JsonProperty("userId")]
-        public int Id { get; set; }
+        public int UserId { get; set; }
         [JsonProperty("access_token")]
         public string Token { get; set; }
 

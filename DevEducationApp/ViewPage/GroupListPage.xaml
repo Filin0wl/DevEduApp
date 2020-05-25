@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DevEducationApp.ViewPage.GroupListPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <RefreshView Command="{Binding ExecuteLoadGroupsCommand}">
+                <ListView x:Name="groupList" ItemsSource="{Binding Groups}"
+            SelectedItem="{Binding SelectedGroup, Mode=TwoWay}"   HasUnevenRows="True" ItemTapped="ListView_ItemTapped" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout>
+                                        <Label Text="{Binding Title}" FontSize="Medium"/>
+                                        <Label Text="{Binding StartDate}" FontSize="Small"/>
+                                        <Label Text="{Binding EndDate}" FontSize="Small"/>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -7,6 +7,9 @@ namespace DevEducationApp
     class TokenManager : ITokenManager
     {
         private string _token;
+
+        public int UserId { get; set; }
+
         public string GetToken()
         {
             return _token;
@@ -14,7 +17,7 @@ namespace DevEducationApp
 
         public void SetToken(string token)
         {
-            _token = token;
+            _token =  token;
         }
     }
 }

@@ -8,14 +8,14 @@ namespace DevEducationApp.AdapterModels
 {
     public class GroupModelAdapter
     {
-        public static IModel Convert(IDto input)
+        public static GroupModel Convert(GroupDto input)
         {
-            IModel output = new GroupModel();
-            ((GroupModel)output).GroupId = ((GroupDto)input).GroupId.HasValue ? ((GroupDto)input).GroupId.Value : 0;
-            ((GroupModel)output).StartDate = ((GroupDto)input).StartDate.HasValue ? ((GroupDto)input).StartDate.Value.ToString("dd/MM/yyyy") : default;
-            ((GroupModel)output).EndDate = ((GroupDto)input).EndDate.HasValue ? ((GroupDto)input).EndDate.Value.ToString("dd/MM/yyyy") : default;
-            ((GroupModel)output).TimeStartString = ((GroupDto)input).TimeStartString;
-
+            GroupModel output = new GroupModel();
+            output.GroupId = input.GroupId.HasValue ? input.GroupId.Value : 0;
+            output.StartDate = input.StartDate.HasValue ? input.StartDate.Value.ToString("dd/MM/yyyy") : default;
+            output.EndDate = input.EndDate.HasValue ? input.EndDate.Value.ToString("dd/MM/yyyy") : default;
+            output.TimeStartString = input.TimeStartString;
+            output.Title = input.Title;
             return output;
         }
     }

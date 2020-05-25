@@ -1,4 +1,5 @@
-﻿using DevEducationApp.DTO;
+﻿using Autofac;
+using DevEducationApp.DTO;
 using DevEducationApp.Models;
 using DevEducationApp.Requester;
 using DevEducationApp.Services;
@@ -30,20 +31,13 @@ namespace DevEducationApp.ViewPage
 
         private async void Start()
         {
-            var service = new UserService();
-            var model = new LoginDTO
+            await App.container.Resolve<IUserService>().Auth(new DTO.LoginDTO()
             {
-                Id = 0,
-                Login = "TestYourLuck",
-                Password = "123"
-            };
-            var tokenManager = new TokenManager();
-            /*            var token = await service.Auth(model);*/
-            var token = await service.Auth(model);
-            tokenManager.SetToken(token);
-            var groupService = new GroupDTORequester(token);
+                Password = EntryPassword.Text,
+                Login = EntryLogin.Text
+            });
 
-         //   var group = await groupService.GroupByTeacher();
+            await Navigation.PushAsync(new GroupListPage());
         }
     }
 }

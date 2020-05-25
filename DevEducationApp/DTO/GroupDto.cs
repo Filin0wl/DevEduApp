@@ -3,18 +3,20 @@ using System;
 
 namespace DevEducationApp.DTO
 {
-    public class GroupDto :IDto
+    public class GroupDto : IDto
     {
-        [JsonProperty("groupId", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("groupId")]
         public int? GroupId { get; set; }
-        
-        [JsonProperty("startDate", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+        [JsonProperty("startDate")]
         public DateTimeOffset? StartDate { get; set; }
 
-        [JsonProperty("endtDate", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("endtDate")]
         public DateTimeOffset? EndDate { get; set; }
 
-        [JsonProperty("timeStartString", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("timeStartString")]
         public string TimeStartString { get; set; }
+        [JsonProperty("title")]
+        public string Title { get; set; }
     }
 }

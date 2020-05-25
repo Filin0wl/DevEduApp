@@ -13,11 +13,7 @@ namespace DevEducationApp
         [Post("/token")]
         Task<ReceiveTokenDTO> Login(LoginDTO model);
 
-        /*[Get("/api/User/get-by-login")]
-        Task<ReceiveUserDTO> GetUserByLogin(GetUserByLoginDTO model, [Header("Authorization")] string token);
-
-        [Get("/api/User/{id}")]
-        Task<ReceiveUserDTO> GetUserById(int id, [Header("Authorization")] string token);*/
+        
 
     }
 }

@@ -5,13 +5,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="DevEducationApp.ViewPage.LoginPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Login:"/>
-            <Entry x:Name="login" Text="TestYourLuck"/>
+            <Entry x:Name="EntryLogin" Text="TestYourLuck"/>
             <Label Text="Password:"/>
-            <Entry x:Name="password" Text="123"/>
+            <Entry x:Name="EntryPassword" Text="123"/>
             <Button x:Name="logInBtn" Text="LogIn" HorizontalOptions ="Center" Clicked="logInBtn_Clicked" />
         </StackLayout>
     </ContentPage.Content>
+
 </ContentPage>

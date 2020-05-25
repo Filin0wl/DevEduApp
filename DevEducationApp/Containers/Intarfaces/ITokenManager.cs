@@ -6,6 +6,7 @@ namespace DevEducationApp
 {
     public interface ITokenManager
     {
+        int UserId { get; set; }
         void SetToken(string token);
         string GetToken();
     }

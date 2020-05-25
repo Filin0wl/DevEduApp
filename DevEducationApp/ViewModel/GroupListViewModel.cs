@@ -6,23 +6,30 @@ using DevEducationApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
 namespace DevEducationApp.ViewModel
 {
-    public class GroupsViewModel
+    public class GroupListViewModel 
     {
-        private readonly GroupService _service;
+        private readonly GroupsService _service;
+
+        public INavigation Navigation { get; set; }
+
         public ObservableCollection<GroupModel> Groups { get; set; }
         public Command LoadGroupCommand { get; set; }
-        public GroupsViewModel(GroupService service)
+        public GroupListViewModel(GroupsService service)
         {
             Groups = new ObservableCollection<GroupModel>();
+            
             LoadGroupCommand = new Command(async () => await ExecuteLoadGroupsCommand());
             _service = service;
+            ExecuteLoadGroupsCommand();
         }
 
         private async Task ExecuteLoadGroupsCommand()
@@ -31,9 +38,11 @@ namespace DevEducationApp.ViewModel
             Groups.Clear();
             groups.ForEach(group =>
             {
-                GroupModel g = (GroupModel)GroupModelAdapter.Convert(group);
+                GroupModel g = GroupModelAdapter.Convert(group);
                 Groups.Add(g);
             });
         }
+
+        
     }
 }

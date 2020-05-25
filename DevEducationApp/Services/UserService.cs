@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 using Refit;
 using System.Net.Http.Headers;
 using DevEducationApp.DTO;
+using Autofac;
 
 namespace DevEducationApp.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly IUserApi _client;
         
@@ -26,25 +27,17 @@ namespace DevEducationApp.Services
            // _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<string> Auth(LoginDTO model)
+        public async Task Auth(LoginDTO model)
         {
             
-                var authResult = await _client.Login(model);
-                //if()
-           
+            var authResult = await _client.Login(model);
+            if(authResult.Token != null)
+            {
+                App.container.Resolve<ITokenManager>().SetToken(authResult.Token);
+                App.container.Resolve<ITokenManager>().UserId = authResult.UserId;
+            }
 
-
-            /*HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "token");
-            request.Content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await _client.SendAsync(request);*/
-
-
-           /* var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
-            var respose = await _client.PostAsync("/token", content);
-            var stringContent = await respose.Content.ReadAsStringAsync();
-            var resultModel = JsonConvert.DeserializeObject<AuthResultModel>(stringContent);*/
-
-            return authResult.Token;
+            
         }
     }
 }
